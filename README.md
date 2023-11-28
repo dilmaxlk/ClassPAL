@@ -1,11 +1,11 @@
 <p><span style="font-size:36px"><strong>ClassPAL</strong></span><br />
-<strong>OpenSource Tuition Class Management System. Complete Web-Based Tuition Class Management System for Tuition Class Teachers.<br />
-Responsive User Interface.</strong></p>
+<strong>OpenSource Tuition Class Management System. Complete Web-Based Tuition Class Management System for Tuition Class Teachers.<br /></strong></p>
 
 <p><br />
 <strong><span style="font-size:20px">Features</span></strong></p>
 
 <ul>
+	<li><strong>Responsive User Interface</strong></li>
 	<li><strong>ClassPAL will run over all kinds of devices seamlessly.</strong></li>
 	<li><strong>Add Unlimited Students.</strong></li>
 	<li><strong>You can add any amount of students and their details and view quickly.</strong></li>
