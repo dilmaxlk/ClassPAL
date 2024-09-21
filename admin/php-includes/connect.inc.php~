@@ -1,0 +1,32 @@
+<?php
+
+
+// Database Connection
+$dbconnect = array(
+    'server' => 'localhost',
+    'dbuser' => 'netc_uclasspalnew', // Use same db username for other db.
+    'dbpass' => 'ts0!!e*jOI2mj5C9',
+    'dbname' => 'netc_classpal_new'   
+);
+
+
+
+$db = new mysqli (
+        $dbconnect ['server'],
+        $dbconnect ['dbuser'],
+        $dbconnect ['dbpass'],
+        $dbconnect ['dbname']
+
+        );
+
+if ($db->connect_errno>0){
+    echo "Database Connect Error";
+    exit;
+}  else {
+    //echo "Success";
+
+}
+
+
+?>
+
