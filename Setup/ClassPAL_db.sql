@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 14, 2023 at 12:23 AM
--- Server version: 10.3.38-MariaDB-0ubuntu0.20.04.1
--- PHP Version: 7.4.33
+-- Generation Time: Sep 25, 2024 at 12:14 AM
+-- Server version: 5.7.40-log
+-- PHP Version: 8.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `netc_classpal_v1`
+-- Database: `classpal`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `cp_absent` (
   `date` date NOT NULL,
   `student_id` int(11) NOT NULL,
   `subj_id` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `cp_announcements` (
   `an_date` date NOT NULL,
   `an_title` varchar(255) NOT NULL,
   `an_des` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_announcements`
@@ -66,7 +66,7 @@ CREATE TABLE `cp_attendance` (
   `student_id` int(11) NOT NULL,
   `subj_id` int(11) DEFAULT NULL,
   `att_time` time DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `cp_attendance` (
 CREATE TABLE `cp_ins` (
   `ins_id` int(11) NOT NULL,
   `ins_name` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_ins`
@@ -98,14 +98,25 @@ CREATE TABLE `cp_logs` (
   `username` varchar(255) DEFAULT NULL,
   `logdate` date DEFAULT NULL,
   `logtime` time DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cp_logs`
 --
 
 INSERT INTO `cp_logs` (`id`, `userid`, `username`, `logdate`, `logtime`) VALUES
-(374, 2875, 'admin', '2023-05-14', '00:20:23');
+(374, 2875, 'admin', '2023-05-14', '00:20:23'),
+(375, 2875, 'admin', '2024-07-04', '18:13:47'),
+(376, 2875, 'admin', '2024-07-07', '15:54:02'),
+(377, 2875, 'admin', '2024-07-07', '16:30:28'),
+(378, 2875, 'admin', '2024-07-08', '11:06:39'),
+(379, 2875, 'admin', '2024-07-08', '11:07:36'),
+(380, 2875, 'admin', '2024-07-08', '11:07:59'),
+(381, 2875, 'admin', '2024-08-24', '16:23:44'),
+(382, 2875, 'admin', '2024-09-16', '00:39:59'),
+(383, 2875, 'admin', '2024-09-16', '01:23:34'),
+(384, 2875, 'admin', '2024-09-16', '01:27:25'),
+(385, 2875, 'admin', '2024-09-24', '13:17:47');
 
 -- --------------------------------------------------------
 
@@ -125,14 +136,14 @@ CREATE TABLE `cp_online_reg_stu` (
   `stu_con_mobile1` varchar(255) DEFAULT NULL,
   `stu_con_mobile2` varchar(255) DEFAULT NULL,
   `stu_email` varchar(255) DEFAULT NULL,
-  `stu_notes` varchar(255) CHARACTER SET big5 COLLATE big5_chinese_ci DEFAULT NULL,
+  `stu_notes` varchar(255) CHARACTER SET big5 DEFAULT NULL,
   `stu_passGrade` varchar(45) DEFAULT NULL,
   `stu_image_name` varchar(255) DEFAULT NULL,
   `stu_nic` varchar(45) DEFAULT NULL,
   `stu_school` varchar(255) DEFAULT NULL,
   `stu_accesskey` int(11) DEFAULT NULL,
   `stu_barcode` int(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -154,7 +165,7 @@ CREATE TABLE `cp_payments` (
   `pay_misc_pay_description` varchar(255) DEFAULT NULL,
   `pay_misc_amount` double(10,2) DEFAULT NULL,
   `pay_stu_batch_no` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_payments`
@@ -178,7 +189,7 @@ CREATE TABLE `cp_settings` (
   `Enable_Disable_Stu_Reg` int(11) NOT NULL,
   `teacher_name` varchar(255) DEFAULT NULL,
   `teacher_photo` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_settings`
@@ -188,7 +199,7 @@ INSERT INTO `cp_settings` (`setting_id`, `showrecords`, `sms_gway_dcode`, `sms_g
 (1, 10, NULL, NULL, NULL, 0, NULL, NULL),
 (2, 0, '94773749866', '6847', 'Textit', 0, NULL, NULL),
 (3, 0, NULL, NULL, NULL, 1, NULL, NULL),
-(4, 0, NULL, NULL, NULL, 0, 'Student Management', '617071_dilmax_logo2.png');
+(4, 0, NULL, NULL, NULL, 0, 'Student Management', '280788_openappz-logo (1).jpg');
 
 -- --------------------------------------------------------
 
@@ -199,7 +210,7 @@ INSERT INTO `cp_settings` (`setting_id`, `showrecords`, `sms_gway_dcode`, `sms_g
 CREATE TABLE `cp_sidebar` (
   `id` int(11) NOT NULL,
   `value` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cp_sidebar`
@@ -227,20 +238,21 @@ CREATE TABLE `cp_students` (
   `stu_con_mobile1` varchar(255) DEFAULT NULL,
   `stu_con_mobile2` varchar(255) DEFAULT NULL,
   `stu_email` varchar(255) DEFAULT NULL,
-  `stu_notes` varchar(255) CHARACTER SET big5 COLLATE big5_chinese_ci DEFAULT NULL,
+  `stu_notes` varchar(255) CHARACTER SET big5 DEFAULT NULL,
   `stu_image_name` varchar(255) DEFAULT NULL,
   `stu_nic` varchar(45) DEFAULT NULL,
   `stu_school` varchar(255) DEFAULT NULL,
   `stu_accesskey` int(11) DEFAULT NULL,
   `stu_barcode` int(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_students`
 --
 
 INSERT INTO `cp_students` (`stu_ID`, `stu_studentID`, `stu_regdate`, `stu_studentname`, `stu_address`, `stu_sex`, `stu_bday`, `stu_con_home`, `stu_con_mobile1`, `stu_con_mobile2`, `stu_email`, `stu_notes`, `stu_image_name`, `stu_nic`, `stu_school`, `stu_accesskey`, `stu_barcode`) VALUES
-(1222, 800094, '2023-05-14', 'Demo Student', '', 'Male', '0000-00-00', '', '0775394882', '', '', '', '800094_96.jpg', '', '', 13506, NULL);
+(1222, 800094, '2023-05-14', 'Demo Student', '', 'Male', '0000-00-00', '', '0775394882', '', '', '', '800094_96.jpg', '', '', 13506, NULL),
+(1223, 1001107, '2024-07-04', 'vssdvsd', '', '', '0000-00-00', '', '5535345', '', '', '', 'df.jpg', '', '', 72606, NULL);
 
 -- --------------------------------------------------------
 
@@ -253,7 +265,7 @@ CREATE TABLE `cp_subjects` (
   `subj_name` varchar(255) NOT NULL,
   `subj_classfee` double(10,2) NOT NULL,
   `subj_des` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_subjects`
@@ -278,14 +290,15 @@ CREATE TABLE `cp_subj_allo` (
   `sa_batch_no` varchar(255) NOT NULL,
   `sa_notes` varchar(255) DEFAULT NULL,
   `sa_barCode` int(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_subj_allo`
 --
 
 INSERT INTO `cp_subj_allo` (`sa_id`, `sa_stu_student_id`, `sa_stu_student_Name`, `sa_subj_id`, `sa_institutid`, `sa_subj_fee`, `sa_batch_no`, `sa_notes`, `sa_barCode`) VALUES
-(247, 800094, 'Demo Student', 1038, 4, 1000.00, 'ENG-2023', '', 123456789);
+(247, 800094, 'Demo Student', 1038, 4, 1000.00, 'ENG-2023', '', 123456789),
+(248, 1001107, 'vssdvsd', 1038, 4, 0.00, '2024', '', 0);
 
 -- --------------------------------------------------------
 
@@ -298,7 +311,7 @@ CREATE TABLE `cp_userpermission` (
   `permission_id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `OnOff` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_userpermission`
@@ -345,8 +358,8 @@ CREATE TABLE `cp_users` (
   `firstname` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
   `sp_id` int(11) DEFAULT NULL,
-  `user_notes` longtext DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `user_notes` longtext
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cp_users`
@@ -469,7 +482,7 @@ ALTER TABLE `cp_ins`
 -- AUTO_INCREMENT for table `cp_logs`
 --
 ALTER TABLE `cp_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
 
 --
 -- AUTO_INCREMENT for table `cp_online_reg_stu`
@@ -487,7 +500,7 @@ ALTER TABLE `cp_settings`
 -- AUTO_INCREMENT for table `cp_students`
 --
 ALTER TABLE `cp_students`
-  MODIFY `stu_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1223;
+  MODIFY `stu_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1224;
 
 --
 -- AUTO_INCREMENT for table `cp_subjects`
@@ -499,7 +512,7 @@ ALTER TABLE `cp_subjects`
 -- AUTO_INCREMENT for table `cp_subj_allo`
 --
 ALTER TABLE `cp_subj_allo`
-  MODIFY `sa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `sa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- AUTO_INCREMENT for table `cp_userpermission`
